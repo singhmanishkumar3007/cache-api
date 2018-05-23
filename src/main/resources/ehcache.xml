@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" 
+	updateCheck="true"
+	monitoring="autodetect" 
+	dynamicConfig="true">
+
+	<!-- By default, Ehcache stored the cached files in temp folder. -->
+	<!-- <diskStore path="java.io.tmpdir" /> -->
+	
+	<!-- Ask Ehcache to store cache in this path -->
+	<diskStore path="c:\\cache" />
+
+	<cache name="getEmployeesByCache" 
+		maxBytesLocalHeap="10M"
+		eternal="false" 
+		overflowToDisk="false"
+		timeToIdleSeconds="0" 
+		timeToLiveSeconds="60"
+		memoryStoreEvictionPolicy="LFU" 
+		transactionalMode="off">
+		<persistence strategy="none" />
+	</cache>
+	
+	<cache name="getEmployeesNameByCache" 
+		maxBytesLocalHeap="10M"
+		eternal="false" 
+		overflowToDisk="false"
+		timeToIdleSeconds="0" 
+		timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LFU" 
+		transactionalMode="off">
+		<persistence strategy="none" />
+	</cache>
+	
+	<sizeOfPolicy maxDepth="10000" maxDepthExceededBehavior="abort"/>
+
+</ehcache>
